@@ -60,8 +60,6 @@ public class lerpUIPosition : MonoBehaviour {
 
     IEnumerator startLerping()
     {
-        //This is a coroutine
-
 
         yield return new WaitForSeconds(2);
         gameObject.GetComponent<Animator>().SetTrigger("animationScale");

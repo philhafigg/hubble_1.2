@@ -17,15 +17,15 @@ public class resetChildAnimationMovement : MonoBehaviour {
 
     public void ResetChildAnimationMovement() {
 
-        foreach (Image image in imageList) {
+        foreach (Image tImage in imageList) {
 
-            image.color = new Color(1, 1, 1, 0);
+            tImage.color = new Color(1, 1, 1, 0);
         }
 
-        foreach (RectTransform transform in transformList)
+        foreach (RectTransform tTransform in transformList)
         {
 
-            transform.anchoredPosition = new Vector2(0, 0);
+            tTransform.anchoredPosition = new Vector2(0, 0);
         }
     }
 	

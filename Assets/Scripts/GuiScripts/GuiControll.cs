@@ -77,7 +77,7 @@ public class GuiControll : MonoBehaviour
             }
 
             activeSection = gameObject.transform.Find(section).gameObject;
-
+            
             activeSection.SetActive(true);
             activeSection.GetComponentInChildren<lerpUIPosition>().blend();
 

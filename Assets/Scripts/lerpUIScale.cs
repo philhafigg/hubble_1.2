@@ -18,11 +18,6 @@ public class lerpUIScale : MonoBehaviour {
 
         gameObject.GetComponent<RectTransform>().localScale = startScale;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void FixedUpdate() {
         

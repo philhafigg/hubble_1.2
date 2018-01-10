@@ -18,10 +18,8 @@ public static class TransformDeepChildExtension
         return null;
     }
 
-
-    /*
     //Depth-first search
-    public static Transform FindDeepChild(this Transform aParent, string aName)
+    public static Transform FindFirstDeepChild(this Transform aParent, string aName)
     {
         foreach(Transform child in aParent)
         {
@@ -33,5 +31,4 @@ public static class TransformDeepChildExtension
         }
         return null;
     }
-    */
 }
