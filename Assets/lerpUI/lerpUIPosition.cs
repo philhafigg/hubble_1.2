@@ -28,6 +28,7 @@ public class lerpUIPosition : MonoBehaviour {
         }
 
         gameObject.GetComponent<RectTransform>().anchoredPosition = startPos;
+       // blend();
 	}
 
     void FixedUpdate() {
@@ -42,6 +43,7 @@ public class lerpUIPosition : MonoBehaviour {
 
             if (percentageComplete >= 1.0f)
             {
+                Debug.Log("aaaa");
                 isLerp = false;
                 buttonChildren.GetComponent<Animator>().SetTrigger("childAnimationMovement");
             }

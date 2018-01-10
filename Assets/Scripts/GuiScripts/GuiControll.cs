@@ -72,7 +72,8 @@ public class GuiControll : MonoBehaviour
 
             if (activeSection) {
 
-                activeSection.SetActive(false);
+                activeSection.transform.Find("ButtonChildren").GetComponent<Animator>().SetTrigger("closeChildAnimation");
+                //activeSection.SetActive(false);
             }
 
             activeSection = gameObject.transform.Find(section).gameObject;
@@ -84,11 +85,12 @@ public class GuiControll : MonoBehaviour
     }
 
     public void deactivateSection(){
-
         if (activeSection)
         {
-
-            activeSection.SetActive(false);
+            activeSection.transform.FindDeepChild("ButtonChildren").gameObject.GetComponent<Animator>().SetTrigger("closeChildAnimation");
+                         //GetComponentInChildren<resetChildAnimationMovement>()
+            //activeSection.SetActive(false);
+            activeSection = null;
         }
     }
 }
