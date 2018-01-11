@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class resetChildAnimationMovement : MonoBehaviour {
+public class ResetChildAnimationMovement : MonoBehaviour {
 
+
+    public GameObject GUI;
     Component[] imageList;
     Component[] transformList;
-
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class resetChildAnimationMovement : MonoBehaviour {
         transformList = gameObject.transform.GetComponentsInChildren<RectTransform>();
     }
 
-    public void ResetChildAnimationMovement() {
+    public void reset() {
 
         foreach (Image tImage in imageList) {
 
@@ -27,7 +28,12 @@ public class resetChildAnimationMovement : MonoBehaviour {
 
             tTransform.anchoredPosition = new Vector2(0, 0);
         }
+
+        gameObject.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
+
+        GUI.GetComponent<GuiControll>().resetSection();
     }
-	
+
+  
 
 }	

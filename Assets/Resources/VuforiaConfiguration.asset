@@ -25,11 +25,11 @@ MonoBehaviour:
     cameraOffset: 0.06
     distortionRenderingLayer: 31
     eyewearType: 0
-    stereoFramework: 0
+    stereoFramework: 2
     seeThroughConfiguration: 0
-    viewerName: 
-    viewerManufacturer: 
-    useCustomViewer: 0
+    viewerName: Generic Cardboard
+    viewerManufacturer: Vuforia
+    useCustomViewer: 1
     customViewer:
       Version: 0
       Name: 
@@ -57,10 +57,10 @@ MonoBehaviour:
   deviceTracker:
     autoInitTracker: 1
     autoStartTracker: 1
-    trackingMode: 0
+    trackingMode: 1
     posePrediction: 1
     modelCorrectionMode: 2
-    modelTransformEnabled: 1
+    modelTransformEnabled: 0
     modelTransform: {x: 0, y: 0.1, z: 0}
   smartTerrain:
     autoInitTracker: 0

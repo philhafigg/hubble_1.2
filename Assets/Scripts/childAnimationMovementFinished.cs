@@ -24,8 +24,8 @@ public class childAnimationMovementFinished : StateMachineBehaviour {
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
     	
         buttonChildren = animator.gameObject;
-        buttonChildren.transform.parent.gameObject.SetActive(false);
-        buttonChildren.GetComponent<resetChildAnimationMovement>().ResetChildAnimationMovement();
+
+        buttonChildren.GetComponent<ResetChildAnimationMovement>().reset();
         //reset
         //if (eyes == null)
         //    eyes = animator.gameObject.GetComponent<EyeLinker>().eyes;
