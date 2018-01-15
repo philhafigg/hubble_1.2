@@ -6,6 +6,14 @@ public class lookAtCamera : MonoBehaviour {
 
     public Camera cameraToLookAt;
 
+    void Start()
+    {
+        if (cameraToLookAt == null) {
+
+            cameraToLookAt = Camera.main;
+        }
+    }
+
 
     void Update()
     {

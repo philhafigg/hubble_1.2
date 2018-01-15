@@ -11,6 +11,8 @@ public class blendInOut : MonoBehaviour {
     float _timeStartedLerping;
     bool isLerp = false;
     public Component[] renderers;
+    bool actBlend = true;
+    public float destAlpha = 0.0f;
 
     // Use this for initialization
     void Start () {
@@ -47,18 +49,20 @@ public class blendInOut : MonoBehaviour {
     //1 is in 0 is out
     public void blend(bool blendMode) {
 
-        if (blendMode)
-        {
-            startAlpha = 0.0f;
-            endAlpha = 1.0f;
+        if (blendMode != actBlend) {
+           
+            if (blendMode)
+            {
+                startAlpha = destAlpha;
+                endAlpha = 1.0f;
+            }
+            else {
+                startAlpha = 1.0f;
+                endAlpha = destAlpha;
+            }
+            actBlend = blendMode;
+            isLerp = true;
+            _timeStartedLerping = Time.time;
         }
-        else {
-            startAlpha = 1.0f;
-            endAlpha = 0.0f;
-        }
-
-        isLerp = true;
-        _timeStartedLerping = Time.time;
-        
     }
 }

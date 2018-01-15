@@ -72,7 +72,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         switch (mTrackableBehaviour.TrackableName)
         {
-
             case "hubble_1":
                 GameObject.Find("sceneControl").GetComponent<mainController>().setTracking(true, "Hubble");
                 break;
@@ -104,7 +103,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
-
+        Debug.Log("TRACK LOST" + mTrackableBehaviour.TrackableName);
         switch (mTrackableBehaviour.TrackableName)
         {
 

@@ -13,13 +13,6 @@ public class mainController : MonoBehaviour {
 
     private GameObject selectedObj;
 
-    void Start () {
-
-        //GUI = GameObject.Find("GUI");
-        //Debug.Log(GUI);
-        //GUI.GetComponent<GuiControll>().mainController = gameObject.transform.gameObject;
-	}
-
     //gets called by vuforia
     public void setTracking(bool track, string target) {
 
@@ -43,7 +36,7 @@ public class mainController : MonoBehaviour {
             }
         } else {
 
-            GUI.GetComponent<GuiControll>().deactivateSection();
+            GUI.GetComponent<GuiControll>().deactivateSection(target);
         }
     }
     //activate Clicked Element - subitems gui

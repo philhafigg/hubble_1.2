@@ -13,7 +13,8 @@ public class GuiControll : MonoBehaviour
     public GameObject activeSection;
     public GameObject[] sectionList;
     public GameObject mainController;
-
+    public GameObject GuiOverlay;
+    public GameObject Loading;
 
     // Use this for initialization
     void Start()
@@ -60,42 +61,48 @@ public class GuiControll : MonoBehaviour
         activateElement();
     }
 
-    void activateElement() {
+    void activateElement()
+    {
 
         string[] substrings = activeButton.name.Split(new string[] { "Button_" }, StringSplitOptions.None);
         mainController.GetComponent<mainController>().activateElement(substrings[1]);
     }
 
+
     public void activateSection(String section) {
         
-        //if (section != activeSection.transform.name) {
-
         if (activeSection && activeSection.transform.name != section) {
 
-            activeSection.transform.Find("ButtonChildren").GetComponent<Animator>().SetTrigger("closeChildAnimation");
-            //activeSection.SetActive(false);
+            activeSection.transform.FindDeepChild("ButtonChildren").gameObject.GetComponent<Animator>().SetTrigger("completeReset");
+            resetSection();
+        } 
+
+        if (activeSection && activeSection.transform.name == section) {
+
+            return;
         }
 
+        Loading.SetActive(false);
         activeSection = gameObject.transform.FindDeepChild(section).gameObject;
 
         activeSection.SetActive(true);
         activeSection.GetComponentInChildren<lerpUIPosition>().blend();
-
-       // }
+        GuiOverlay.transform.FindDeepChild(section).gameObject.SetActive(true);
     }
 
-    public void deactivateSection(){
-        if (activeSection)
-        {
-            activeSection.transform.FindDeepChild("ButtonChildren").gameObject.GetComponent<Animator>().SetTrigger("closeChildAnimation");
-                         //GetComponentInChildren<resetChildAnimationMovement>()
-            //activeSection.SetActive(false);
+    public void deactivateSection(string target){
+        
+        Loading.SetActive(true);
 
+        if (activeSection && activeSection.transform.name == target)
+        {
+            GuiOverlay.transform.FindDeepChild(activeSection.transform.name).gameObject.SetActive(false);
+            activeSection.transform.FindDeepChild("ButtonChildren").gameObject.GetComponent<Animator>().SetTrigger("closeChildAnimation");
         }
     }
 
     public void resetSection() {
-
+        
         activeSection.SetActive(false);
         activeSection = null;
     }
