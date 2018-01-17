@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResetChildAnimationMovement : MonoBehaviour {
+public class ResetChildAnimationMovement : MonoBehaviour
+{
 
 
     public GameObject GUI;
@@ -16,9 +17,11 @@ public class ResetChildAnimationMovement : MonoBehaviour {
         transformList = gameObject.transform.GetComponentsInChildren<RectTransform>();
     }
 
-    public void reset() {
+    public void reset()
+    {
 
-        foreach (Image tImage in imageList) {
+        foreach (Image tImage in imageList)
+        {
 
             tImage.color = new Color(1, 1, 1, 0);
         }
@@ -29,11 +32,14 @@ public class ResetChildAnimationMovement : MonoBehaviour {
             tTransform.anchoredPosition = new Vector2(0, 0);
         }
 
-        gameObject.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(0,0);
+        gameObject.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
 
         GUI.GetComponent<GuiControll>().resetSection();
     }
 
-  
 
+    public void softReset()
+    {
+        gameObject.transform.parent.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+    }
 }	

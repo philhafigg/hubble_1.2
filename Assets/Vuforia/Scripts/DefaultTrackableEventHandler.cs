@@ -103,7 +103,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
-        Debug.Log("TRACK LOST" + mTrackableBehaviour.TrackableName);
         switch (mTrackableBehaviour.TrackableName)
         {
 
